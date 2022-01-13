@@ -1,0 +1,69 @@
+
+- Computer components:
+
+1. Processor or CPU 
+2. Memory to store both data and programs (list of instructions)
+3. Mechanism for data input and output
+
+
+3 components inside processors:
+
+1. Registers temporarily stores the data inside CPU
+2. ALU processes that data (arithmetic logic unit)
+3. Control unit interprets instructions and tells ALU what operations to execute through control signals
+
+In what order do these 3 processes happen in? 
+
+
+- Measures of Capacity
+
+Decimal term
+Kilobyte: 10^3 
+Megabyte: 10^6
+Gigabyte: 10^9
+Terabyte: 10^12
+
+CPU speed is measured in MHz or GHz
+Hertz is clock cycles per second, there are 1,000,000 hertz in a MHz
+
+Compiler translate high level code to Assembly code and an Assembler translates that assembly code to binary machine code
+
+To code in assembly for this class, we need to download Java and a rars.exe file from github repo called "TheThirdOne" continuous build
+
+Assembly code provides two parts: Data (variables) and Text (instructions)
+
+
+- Computer Hierarchy:
+Levels 0-2 are hardware 
+Levels 3-6 are software
+
+6: User - .exe files
+5: High level programming - C++, Java
+4: Assembly language - Assembly code
+3: System software - OS, Library code
+2: Machine code - Instruction set architecture
+1: Control - Microcode or hardware
+0: Digital logic - Circuit Gates
+
+
+- Von Neumann Model 
+Proposed in 1945
+memory -> processing unit (ALU) -> control unit
+
+The ALU and control unit have been merged together, now known as the CPU
+
+$ The single data path between the CPU and main memory is known as the Von Neumann Bottleneck
+
+Usually are either 32 or 64 registers in the CPU
+
+Von Neumann Model employs a fetch-decode-execute cycle to run programs
+
+Control unit fetchs instructions from an address in memory then decodes it and sends to ALU, the ALU then executes those instructions
+
+
+- Program Counter 
+A special register that keeps track of which intructions have already been fetched. After  fetching one instruction then it's executed. Now increase pc by one and fetch the next instruction
+
+Since there are a limited number of registers in a CPU, they are a temporary storage for instructions that are cycled out as new instructions are available and old ones are executed
+
+Each intruction in RSC-V requires 4 bytes or 32 bits
