@@ -1,0 +1,55 @@
+
+Computers can only process binary numbers. Hex and octal is for human communication of these complex binary numbers.
+
+
+Decimal - Our regular number system, Radix = 10
+01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11
+
+
+Binary - Computer number system, Radix = 2
+0,  1,  2,  3,  4,   5,   6,   7,   8
+00, 01, 10, 11, 100, 101, 110, 111, 1000
+
+
+Octal - Goes from 0-7, so 10 represents 8, Radix = 8
+0, 1, 2, 3, 4, 5, 6, 7, 10, 10 = 1 * 8
+11, 12, 13, 14, 15, 16, 17, 17 = 1 * 8 + 7
+20, 21, 22, 23, 24, 25, 26, 27
+
+Now the 2 in the octal system represents 16 or 2*8
+
+
+Hexidecimal - Goes from 0-15. So far, the most confusing of the bunch, Radix = 16
+1, 2, 3, 4, 5, 6, 7, 8, 9, A = 10, B = 11, C = 12, D = 13, E = 14, F = 15
+
+10 = 1 * 16
+11 = 1 * 16 + 1 
+
+1C
+1D
+1E = 1 * 16 + 14
+1F = 1 * 16 + 15
+
+20 = 2 * 16 + 0
+
+* Bring a calculator for exams
+
+For examples of hex and octal to binary conversion, check slide 9 & 11
+
+
+Binary to Octal 
+
+When converting binary to octal and hex, each group of 3 0 and 1's is considered one digit
+
+Start grouping from decimal to the left and decimal to the right
+
+If for the ending group there aren'y exactly 3 digits, just add 0 at the beginning and it represents the same value
+
+
+Binary to Hex
+
+Groups are 4 digits of binary
+
+The same applies if there aren't enough digits for a group, just add zeros before the values until it makes a group of 4 and it will represent the same value
+
+** Double check the slides to confirm this

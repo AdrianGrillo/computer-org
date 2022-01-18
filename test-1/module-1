@@ -26,7 +26,7 @@ Terabyte: 10^12
 CPU speed is measured in MHz or GHz
 Hertz is clock cycles per second, there are 1,000,000 hertz in a MHz
 
-Compiler translate high level code to Assembly code and an Assembler translates that assembly code to binary machine code
+Compiler translates high level code to Assembly code and an Assembler translates that assembly code to binary machine code
 
 To code in assembly for this class, we need to download Java and a rars.exe file from github repo called "TheThirdOne" continuous build
 
