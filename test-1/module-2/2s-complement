@@ -1,0 +1,34 @@
+2's Complement is going to be the 1's complement + 1
+
+So 1's complement of 45 = 1101 0010 
+2's complement is 46 = 1101 0011
+
+So 1's complement of -57 = 1101 0010 
+2's complement is -58 = 0011 1010
+
+To flip a number in 2's complement, do inverse and add one, example: 
+3: 0011
+-3: 1100 + 1 => 1101
+
+So since you're adding one for 2's complement, the total value of the number goes up by one
+
+2's complement is the best number representation because you don't need to perform an extra addition like in 1's complement
+
+2's complement representation isn't symmetrical, it starts at -8 on the chart and goes to 7, check circular chart
+
+
+----- Addition and subtraction of 2's Compliment -----
+When adding 2 negative numbers, if you get an extra then don't carry it, example:
+-4 + (-3) = 1100 + 1101 = 1001 but then you flip it because the final answer is negative and add one for 2's compliment so the answer is 0111
+
+
+----- PRACTICE -----
+
+53 and -53
+2's Compliment 0011 0101 and 1100 1011 - For negative, add one to negative 1's Compliment, another way to do 2's Compliment is to keep the least significant digit and to flip the rest from right to left, experiment with this
+
+1011 1100
+2's Compliment = -68
+0100 0100 = 64 + 4 = 68 - 2's Compliment
+
+It's easier to find the postive representation and just change it to negative rather than trying to find the negative representation right away

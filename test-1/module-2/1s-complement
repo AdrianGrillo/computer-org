@@ -1,0 +1,37 @@
+
+1's Complement, like SM, also uses the most signigicant digit to represent the sign of the integer
+
+If you perform addition for two values, you always get 1111, example:
+-2 is 1101 and 2 is 0010 SO -2 + 2 = 1111 and this pattern continues for all integers
+
+Whatever the postiive decimal is represented as a signed number in binary, the negative value is represented with all of the inverse numbers. Example
+
+-4 = 1011, 4 = 0100  
+
+And this pattern continues for every number 
+
+-45 = 11010010
+
+The problem with 1's complement is that there's a -0: 1111 and 0: 0000, if you're adding and cross this bar, you must perform an additional addition to get the right answer
+
+
+Addition and subtraction of 1's Compliment
+-4 + (-3): when you get to left most bit in addition, it's 10111 so you carry the one over and eventually get 1000
+
+When subtracting in 1's complement, you still perform binary addition and eventually carry
+
+
+----- PRACTICE -----
+
+Converting a binary to 1's Complement
+Original 1100 0110
+
+1's Complement - Negative because everything is changed 
+0011 1001
+-57
+
+53 and -53
+1's Compliment = 0011 0101 and 1100 1010 - To go negative, flip all of the bits
+
+1011 1100
+1's Compliment = -67
