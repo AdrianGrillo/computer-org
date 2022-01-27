@@ -1,12 +1,12 @@
 
 1's Complement, like SM, also uses the most signigicant digit to represent the sign of the integer
 
-If you perform addition for two values, you always get 1111, example:
+If you perform addition for two of the same integer no matter the sign, you always get 1111, example:
 -2 is 1101 and 2 is 0010 SO -2 + 2 = 1111 and this pattern continues for all integers
 
-Whatever the postiive decimal is represented as a signed number in binary, the negative value is represented with all of the inverse numbers. Example
+However a postive decimal value is represented in binary format, the negative version is represented with all of the bits flipped in 1's complement. Example
 
--4 = 1011, 4 = 0100  
+4 = 0100, -4 = 1011
 
 And this pattern continues for every number 
 
@@ -23,15 +23,35 @@ When subtracting in 1's complement, you still perform binary addition and eventu
 
 ----- PRACTICE -----
 
+Ex. ------------------
 Converting a binary to 1's Complement
-Original 1100 0110
+Binary: 1100 0110
 
-1's Complement - Negative because everything is changed 
-0011 1001
--57
+Flip all of the bits -> 1's Complement: 0011 1001
 
+0011 1001 = 57 
+
+So even though the binary value is 198, the 1's Complement is 57
+
+
+Ex. ------------------
 53 and -53
-1's Compliment = 0011 0101 and 1100 1010 - To go negative, flip all of the bits
 
+1's Complement of 53 and binary of 53 is going to be the same because it's a positive value
+
+53 Binary & 1's Complement: 0011 0101
+
+To get -53, simply flip all of the bits
+
+-53 1's Complement: 1100 1010
+
+
+Ex. ------------------
+What is this value in 1's Complement?
 1011 1100
+
+If you have a vale in 1's complement and want to find the decimal representation, flip all of the bits except for the signed bits and now it's in binary. Once it's in binary you can look at the decimal representation of the binary value.
+
+Binary: 1 100 0011
+
 1's Compliment = -67

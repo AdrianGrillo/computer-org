@@ -1,23 +1,41 @@
-For SM, the min and max and equal parts negative and positive, so for 4 bits: min is -7 and max is 7
-45 = 0010 1101, therefore in sign magnitude we just change the signed bit to one to make it negative and keep the rest so
+For SM, the min and max are equal parts negative and positive, so for 4 bits: min is -7 and max is 7
+45 = 0010 1101, therefore in signed magnitude we just change the signed bit to one to make it negative and keep the rest so
 -45 = 1010 1101
 
 
 ----- Addition and subtraction of SM -----
 
-If signed bits are the same, perform addition. If they're different, perform subtraction. The larger integer always goes on top no matter what the sign is so it would be -4 +3 
+If signed bits are the same, perform addition. If they're different, perform subtraction. The larger integer always goes on top no matter what the sign is so it would be -4 + 3 
 
 
 ----- PRACTICE -----
 
 Converting a binary to Sign Magnitude
 
+Ex. ------------------
 1100 0110
-SM = -70
 
+Since the most significant digit represents the sign in SM, the value of the SM representation is the value of the binary representation minus 128. 
+
+1100 0110 = 198
+198 - 128 = 70
+
+Since the most significant bit is 1, the value is negative
+
+1100 0110 = -70 in SM
+
+
+Ex. ------------------
 53 and -53
-SM = 0011 0101 and 1011 0100 - To go negative, flip the sign bit only
 
+Convert to binary first 
+53 = 0011 0101
+53 in binary is the same as 53 in SM
+
+To find -53, simply make the most significant digit a 1
+-53 = 1011 0101
+
+Ex. ------------------
 1011 1100
 SM = -60
 
