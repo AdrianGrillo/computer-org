@@ -1,0 +1,55 @@
+
+** If carry in is different from carry out, then there's overflow
+Carry in is the integer carried to the left most bit and carry out is the integer carried out to the left of that where it's over the outside of the binary representation
+
+----- EXAMPLE MIDTERM  QUESTIONS -----
+
+Complete the following two operations using twos complement arithmetic with 8 bits. Verify if the results are correct, if not then give a brief explanation. 
+
+a) 39_10 + 89_10
+1st step: represent these two integers in 2's complement
+2nd step: perform binary addition and check for overflow
+
+39: 0010 0111
+89: 0101 1001
+
+39 + 89: 1000 0000, since we carried into the sign bit but didn't carry out, there is overflow
+The result is negative because the signed bit is 1, but that's impossible because we added two positive integers
+
+1000 0000 represents -128 in 2's complement, since 1 is the least significant digit, it counts as 128 even though it's the signed bit
+
+
+b) 39 + 52
+Same steps as example a
+
+39: 0010 0111
+52: 0011 0100
+
+39 + 52: 0101 1011, no overflow occurs because the resulting binary representation is positive 
+
+Step 3: explain output
+Result is 9 b/c 80 + 11. 
+
+
+c) -39_10 - 89_10
+Represent these two integers in 2's complement: so convert to binary, flip the bits, and add 1
+
+-39: 1101 1001
+-89: 1010 0111
+
+Then do binary addition
+
+-39 + -89: 1000 0000 -> No overflow because carry into sign and carry out from sign is both 1
+
+Now convert to decimial -> -128 which is the correct result of adding both these negative numbers
+
+
+d) -52 - 94
+Represent in 2's complement -> So convert to binary, flip the bits, and add 1 OR take the least significant digit and flip that digit and everything to the left of it. Results are the same
+
+-52: 1100 1100
+-94: 1010 0010
+
+Perform binary addition: 0110 1110 -> carry in is 0 and carry out is 1, so overflow detected
+
+We can tell because the resulting integer is positive, yet we added two negative integers

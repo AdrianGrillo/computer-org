@@ -113,3 +113,13 @@ Max number for 1's and 2's complement: 2(n-1)-1
 Practice Hexidecimal addition and subtraction, mainly subtraction
 
 Watch youtube videos of subtracting different binary representations
+
+
+When our computer is performing arithmetic operations, it changes adds all negative numbers. For example:
+-5+(-3) instead of -5-3
+0101 + 
+0011 =
+1000
+
+
+** No character representation questions on the exam

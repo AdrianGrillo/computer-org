@@ -1,0 +1,18 @@
+
+----- MULTIPLICATION -----
+
+- Left Arithmetic Shift: Insert a 0 for the right most bit and shifts everything else left by one bit.
+This in effect multiplies by 2
+
+When mutiplying, the most significant digit is moved to be the least significant digit, example: 
+
+0001 * 2 = 0010 -> The left most zero is removed from the beginning and placed on the end 
+
+1101 * 2 = 1010
+
+
+----- DIVISION -----
+
+- Right Arithmetic Shift: Inset the signed bit as the most significant digit
+
+* Watch a youtube video on this and put the notes here
