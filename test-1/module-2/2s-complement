@@ -25,7 +25,7 @@ When adding 2 negative numbers, if you get an extra then don't carry it, example
 ----- PRACTICE -----
 
 53 and -53
-2's Compliment 0011 0101 and 1100 1011 - For negative, add one to negative 1's Compliment, another way to do 2's Compliment is to keep the least significant digit and to flip the rest from right to left, experiment with this
+2's Compliment 0011 0101 and 1100 1011 - For negative, add one to negative 1's Compliment, another way to do 2's Compliment is to keep the least significant digit that'a a 1 and to flip the rest from right to left, experiment with this
 
 1011 1100
 2's Compliment = -68
