@@ -100,7 +100,7 @@ SM: Flip the MSD
 
 1's: Flip all of the bits 
 
-2's: Flip all of the bits and add one OR keep least significant one and slip all bits to the left
+2's: Flip all of the bits and add one OR keep least significant one and flip all bits to the left
 
 
 Problem 3: 
@@ -167,7 +167,7 @@ SM  0010 0110   1010 0110   0101 0110   1101 0110
 
 Since the carry in and carry out of the signed bit are both one, they are the same and there is no over flow 
 
-** Overflow can only occue when you perform 2 positive or 2 negative additon. 
+** Overflow can only occur when you perform 2 positive or 2 negative additon. 
 
 
 Character codes: 1 point on midterm
