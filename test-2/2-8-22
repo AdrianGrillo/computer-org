@@ -1,0 +1,56 @@
+
+Boolean Functions
+
+xyz' => 110 
+digit with the apostrophe is a 0 and represents not
+
+x   y   z   f(x,y,z)    Minterm
+0   0   0   1           x'y'z' = m0
+0   0   1   1           x'y'z = m1
+0   1   0   0          
+0   1   1   1           x'yz = m3
+1   0   0   0           
+1   0   1   0        
+1   1   0   1           xyz' = m6
+1   1   1   0        
+
+1st case -> not x, not y, not z -> output is 1
+
+Cases where f(x,y,z) is true: 
+x'y'z' || x'y'z || x'yz || xyz' 
+m0 + m1 + m3 + m4
+m(0, 1, 3, 4)
+
+
+x   y   z   f(x,y,z)    Minterm
+0   0   0   0           
+0   0   1   1           x'y'z
+0   1   0   0          
+0   1   1   1           x'yz
+1   0   0   1           xy'z'
+1   0   1   1           xy'z
+1   1   0   0   
+1   1   1   1           xyz
+
+m(1, 3, 4, 5, 7)
+
+Sum of products form: xy + yz + xy
+Products of sums form: (x + z)(x + y)(y + z)
+
+
+----- Boolean Identities -----
+
+To simplify boolean function, remove the redundant information using boolean identities
+
+Boolean identities on slide 7 chapter 3 module 1 powerpoint
+
+3 variables and 2 operations ->  Strong hint to use Distributive Law 
+
+2 variables and 2 operations -> Strong hint to use Absorbtion Law
+
+yz = y AND z, a product indicates the AND operator
+
+y + z = y OR z, a sum indicates the OR operator
+
+
+On the module 3 homework, for each step make a comment on which identity is being applied at each step
