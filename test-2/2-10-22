@@ -1,0 +1,92 @@
+
+----- SoP & PoS -----
+
+Sum of product
+
+F(x,y,z) = x'y'z' + x'yz + xyz'
+
+x   y   z   F(x,y,z)
+0   0   0   1
+0   0   1   
+0   1   0   
+0   1   1   1
+1   0   0   1
+1   0   1   
+1   1   0   
+1   1   1   
+
+
+Product of sum
+If there are any zeros in the product, f(x,y,z) is 0
+
+F(x,y,z) = (x' + y' + z)(x + y' + z')(x + y + z')
+
+x   y   z   F(x,y,z)
+0   0   0   1
+0   0   1   0
+0   1   0   1
+0   1   1   0
+1   0   0   1
+1   0   1   1
+1   1   0   0
+1   1   1   1
+
+0 is the dominant product operation. If the sum of the function is 0, the boolean output must be 0
+
+
+Write canonical SoP and PoS
+x   y   z   F(x,y,z)
+0   0   0   1
+0   0   1   0
+0   1   0   1
+0   1   1   0
+1   0   0   0
+1   0   1   1
+1   1   0   1
+1   1   1   1
+
+All the  rows where the function = 1
+SoP: f(x,y,z) = x'y'z' + x'yz' + xy'z + xyz' + xyz
+
+All the rows where the function = 0
+If a column is 1, then it's x' and if it's 0 then its x
+PoS: f(x,y,z) = (x + y + z')(x + y' + z')(x' + y + z)
+
+
+----- XOR GATE -----
+
+We can tell if overflow is detected using the output of the XOR gate
+So if carry in and carry out from MSD are the same, the output of the XOR gate is 0 
+If they're the same, then output of the XOR gate is 1
+
+
+F(x,y,z) = x xor y xor z
+
+x xor y -> If x and y are the same = 0, if they're different = 1
+
+x   y   z   x xor y F
+0   0   0   0       0 
+0   0   1   0       1
+0   1   0   1       1
+0   1   1   1       0
+1   0   0   1       1
+1   0   1   1       0
+1   1   0   0       0
+1   1   1   0       1
+
+odd # of 1's = 1
+even # of 1's = 0
+This is true whenever doing a table for XOR 
+
+
+----- NAND and NOR GATES -----
+Negation AND / Negation OR
+
+NAND = (xy)'
+NOR = (x + y)'
+
+
+Any boolean function can be built with AND, OR, and NOT gates
+Any boolean function can also be built using only NAND and NOR gates
+
+NAND and NOR are known as universal gates
