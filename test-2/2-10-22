@@ -90,3 +90,18 @@ Any boolean function can be built with AND, OR, and NOT gates
 Any boolean function can also be built using only NAND and NOR gates
 
 NAND and NOR are known as universal gates
+
+
+For 3 variables, we can build 8 different forms of product there are 3 variables that each have 2 forms so its 2^3
+
+x   y   z   x'y'z'  x'y'z   x'yz'  x'yz    xy'z'   xy'z    xyz'    xyz
+0   0   0   1       0       0      0       0       0       0       0  
+0   0   1   0       1       0      0       0       0       0       0
+0   1   0                   1
+0   1   1                          1    
+1   0   0                                  1   
+1   0   1                                          1
+1   1   0                                                  1
+1   1   1                                                          1
+
+Decoder is a special combinational circuit: Useful for memory address

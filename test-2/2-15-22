@@ -1,0 +1,116 @@
+ 
+Half Adder: Generates two outputs, the carry and the sum
+
+Sum(x,y) -> (carry, sum)
+
+When the input to the half adder has an odd number of ones, the output will be 1
+
+Slide 2 on chapter 3.1 PP 
+
+We can use XOR & AND gates to represent the logic for the half adder 
+
+
+Full Adder: 3 inputs (x,y,carry-in) generates (sum, carry-out)
+
+We can use two half adders and an OR gate to implement a full adder 
+
+----- EXAMPLE -----
+
+Given a 3x8 Decoder where the input is x, y, z, how do we implement the SoP? 
+
+x   y   carry-in   sum  carry-out
+0   0   0           0   0
+0   0   1           1   0
+0   1   0           1   0
+0   1   1           0   1
+1   0   0           1   0
+1   0   1           0   1
+1   1   0           0   1
+1   1   1           1   1
+
+Sum column
+SoP: x'y'z + x'yz' + xy'z' + xyz
+
+For the middle two terms: x'yz' + xy'z' -> z'(x'y + xy') -> z' x XOR y -> z'w
+
+For the first and last terms: z(x'y' + xy) -> z(x XOR y)' -> zw'
+
+z'w + zw' -> z XOR w
+
+Carry out column
+x'yz + xy'z + xyz' + xyz -> (x'y + xy')z + xy(z' + z) -> (x XOR y)z + xy
+
+
+* Where x doesn't equal y, there are only two inputs: (0, 1) or (1, 0) so x'y or xy' and thats x XOR y
+* Where x = y, it's (0, 0) or (1, 1) and thats (x XOR y)'
+
+
+Connect 1, 2, 4, 7 becuase those are the minterms on the table 
+
+1 = 001 which is x'y'z
+2 = 010 which is x'yz'
+4 = 100 which is xy'z'
+7 = 111 which is xyz
+
+If you were to use this same decoder to implement carry out: it would be 3, 5, 6, 7 because those are the rows in the table where carry out is 1
+
+
+----- Ripple Carry Adder -----
+
+When full adders are connected in series to add binary numbers
+
+The full adders generate a ripple of carries. So one full adder will generate a carry and pass that into the next full adder and so on and so on. This series of full adders is the ripple carry adder
+
+On slide 4, that carry in at the top of the logic gate is coming from another full adder somewhere else in the circuit 
+
+
+----- Multiplexer (MUX) -----
+
+Selects one data line from two or more inut lines and routes data from the selected line to the output 
+
+For the example on slide 7
+
+Y = D0S1'S0' + D1S1'S0 + D2S1S0' + D3S1S0
+
+When S1S0 = (0,0) then Y = D0
+When S1S0 = (0,1) then Y = D1
+When S1S0 = (1,0) then Y = D2
+When S1S0 = (1,1) then Y = D3
+
+Lets say that you have 8 inputs, that means that you need 3 selection bits or 2^3 
+
+----- EXAMPLE -----
+
+Multiplexer
+
+D0 = 000
+D1 = 001 
+D2 = 010
+D3 = 011
+D4 = 100
+D5 = 101
+D6 = 110
+D7 = 111
+
+S2, S1, S0
+
+What does the boolean function for the output look like? 
+
+Y = D0S2'S1'S0' + D1S2'S1'S0 + D2S2'S1S0' + D3S2'S1S0 + D4S2S1'S0' + D5S2S1'S0 + D6S2S1S0' + D7S2S1S0
+
+Now get rid of the terms that result in 0
+Y = D0S2'S1'S0' + D3S2'S1S0 + D4S2S1'S0' + D5S2S1'S0
+
+----- Bit Shifting -----
+
+When the control line S is low: left shift occurs
+When S is high, right shift occurs
+
+----- EXAMPLE -----
+
+Chart on 3.5 slide 10
+
+O3 = S'I2
+O2 = SI3 + S'I1
+O1 = SI2 + S'10
+O0 = SI1
