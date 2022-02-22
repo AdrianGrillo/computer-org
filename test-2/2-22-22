@@ -1,0 +1,74 @@
+
+Sequential  Circuit Analysis
+
+Slide 11
+
+1. Mark all feedback signals
+
+QA(t), QA(t)', QB(t)'
+
+J = X xor QA(t)
+K = (J + QB(t)')'
+D = (KQA(t)')'
+
+2. Apply the characteristic table of flip flops to obtain the flip flops next states 
+
+QA(t+1) is found according to the properties of JK flip flop
+J and K = 0 -> No change 
+J = 0 and K = 1 -> Reset to 0
+J = 1 and K = 0 -> Set to 1
+J and K = 1 -> Negate  QA(t)
+
+QB(t+1) is determined by the properties of D flip flop
+
+X   QA(t)   QB(t)   J   K   D   QA(t+1) QB(t+1)
+0   0       0       0   0   1   0       1
+0   0       1       0   1   0   0       0
+0   1       0       1   0   1   1       1
+0   1       1       1   0   1   1       1
+1   0       0       1   0   1   1       1
+1   0       1       1   0   1   1       1
+1   1       0       0   0   1   1       1
+1   1       1       0   1   1   0       1
+
+
+Sequential circuits can also be called Finite State Machines (FSM)
+
+In a sequential circuit with p flip flops, you can have 2^p distinct states
+
+There are two types of finite machines: Mealy and Moore machines
+
+
+----- Moore Machine -----
+
+Outputs are a function of the current state
+
+Output changes synchronously with state changes
+
+
+----- Mealy Machine -----
+
+Outputs depend on state and on inputs
+
+Output is not synchronized with current state because it is also dependent on external inputs 
+
+
+On slide 14 the bottom diagram is the Mealy machine because it takes A and B as external inputs that don't go through flip flops
+
+
+RISC V Base Architecture Components
+
+Program counter, register file, arithmetic logic unit, and main memory
+
+The memory address is represented by 32 bits unsigned, this means that there are 2^32 total addresses 
+
+In hex address each digit is 4 bits and there are 8 digits so hex has 2^32 total addresses 
+
+Byte addressible means 8 bits per address 
+
+Each address stores 1 byte so capacity of the whole system is 2^32 bytes which is 4 GB because a GB is 2^30
+
+There are 32 total registers x0 through x31. Each register stores a 32 bit word so 5 bits are needed to store a name of the register 
+
+register 0 is 00000
+register 32 is 11111
