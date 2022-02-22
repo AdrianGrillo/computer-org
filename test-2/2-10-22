@@ -105,3 +105,17 @@ x   y   z   x'y'z'  x'y'z   x'yz'  x'yz    xy'z'   xy'z    xyz'    xyz
 1   1   1                                                          1
 
 Decoder is a special combinational circuit: Useful for memory address
+
+----- Canonical Form -----
+
+When a question asks to put SoP in canonical form, it means that all terms must be included. Example: 
+
+Canonical forms
+
+ab’c = ab’c(d + d’)
+ac’d = ac’d(b + b’)
+a’d = a’d(b + b’) -> a’b’d + a’bd -> a’b’d(c + c’) + a’bd(c + c’) -> a’d(b’c’ + b’c + bc’ + bc)
+
+a = 0 and d = 1, for b and c we don’t care so they can be anything, so in the last form we account for all of the possibilities so for example a must be 0 then we do all of the possibilities for b, c, and d
+
+a’ = a’(b’c’d’ + b’c’d + b’cd’ + b’cd + bc’d’ + bc’d + bcd’ + bcd)
