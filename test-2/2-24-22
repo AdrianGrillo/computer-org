@@ -21,4 +21,8 @@ Opcode determines what type of instruction
 Function 3 determines if arithmetic, logic, or shift
 Function 7 determines if add or sub
 
-** Go over the different instruction types like R, J, I 
+** Go over the different instruction types like R, J, I on slide 4
+
+Representing instructions exercise 1
+funct7, funct3, and opcode already defined. All we need to change are destination register, rs1, and rs2
+
