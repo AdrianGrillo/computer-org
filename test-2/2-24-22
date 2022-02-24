@@ -1,0 +1,24 @@
+
+Rars risc v simulator
+Need java to run the executible jar file
+
+ALU can't read instructions directly from memory, only from registers
+
+Arithmetic: Mathimatic operations
+
+Logical: And, inclusive/ exclusive or
+
+Shift: 
+If arithmetic shift right -> insert 1 to MSD
+If logical shift right -> insert 0 to MSD
+
+If arithmetic or logic shift left -> insert 0 to LSD
+
+
+Each set of instructions is 32 bits and each group of bits represents some different part of the instruction
+
+Opcode determines what type of instruction
+Function 3 determines if arithmetic, logic, or shift
+Function 7 determines if add or sub
+
+** Go over the different instruction types like R, J, I 
