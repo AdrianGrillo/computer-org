@@ -1,0 +1,115 @@
+
+XOR
+
+a       b       c       d
+1010    1011    1100    1101
+1111    1111    1111    1111 #FFFF
+
+0101    0100    0011    0010
+5       4       3       2
+Bit by bit we perform XOR operation to get the resulting binary value
+
+----- How do we check if an integer is even or odd? -----
+
+We check the LSD. If the LSD is 1, then it has to be odd but if the LSD is 0, the then integer is even.
+
+In assembly code: 
+
+Addi t1, t0, 1
+
+If t1 is 0, even. If t1 is 1, odd. 
+
+EXAMPLE: 
+Addi t0, zero, 5 #t0 = 0 + 5 = 5 
+Addi t1, t0, 1 #t1 = 1
+
+So t0 is 0101 which is 5 and t1 is 0001. When we add these two together, the assembly code is doing 5 AND 1
+
+0101 AND 0001 = 0001 so since the LSD is 1, the number is odd
+
+----- Modulus ----
+
+When doing division, we right shift
+
+When doing modulus 2, we check the last bit 
+Modulus 4, check the last two bits
+Modulus 8, check the last 3 bits and so on
+
+21 / 4
+Quotient = 5
+Remainder = 1
+
+0001 0101 -> two LSD shifts out, this is the remainder, the left over is the quotient
+0000 0101 -> Quotient is 5, zeros shift in to replace the two bits shifted out 
+
+----- Set less than -----
+
+x6 = 0xabcd1234 x7 = 0x8
+
+x6 is negative because a is 1010 so signed bit is 1, x7 is positive
+
+slt x5, x6, x7 #x5 = 1
+sltu x5, x6, x7 #x5 = 0
+
+sltu -> set less than unsigned 
+
+----- Example -----
+
+Slide 15
+
+Srai -> Shift right arithmetic immediate 
+
+Sub t2, t1, t0  #t2 = high - low
+Srai t3, t2, 1  #t3 = (high - low) / 2
+Add t4, t3, t0
+
+----- Load and Store -----
+
+** Ask about this in tutoring session 
+
+Load is I type instructions 
+Store is S type instructions 
+
+Because these do different things, the format for the instruction is different so they're different types 
+
+rd is the destination register which is 32 bits 
+offset(rs1) is an immediate value to add and ts1 is the register you're loading from 
+
+lb, rd, offset(rs1) -> load 1 byte (4 bits)
+lh, rd, offset(rs1) -> load 2 bytes (16 bits)
+lw, rd, offset(rs1) -> load 4 bytes (32 bits)
+
+lbu, lhu, lwu load bit/ half/ word unsigned 
+
+sb, sh, sw store byte/ half/ word 
+
+Slide 7 for examples on the meaning of offset(rs1)
+
+
+Example
+
+int A[10];
+
+A specifies base address, we specify that we want 10 indexes. 
+
+Offset = index * 4 
+
+So we want 10 indexes after the base address and each index takes 4 bytes in memory where each space has 8 bits. An integer is 1 word or 32 bits so 4 * 8 = 32bits 
+
+Slide 8 for another example of high level c code to assembly 
+
+
+Example
+
+String str = "hello";   #a0 is base address 
+str[3] = str[3] - 32;   
+
+Since we know that the characters are in ASCII, we'll load unsigned number 
+
+lbu t0, 3(a0)
+addi t1, t0 -32
+sb t1, 3(a0)
+
+So really for offset(rs1), rs1 is dependent on your datatype. For characters it's just bytes but for integers, each integer is a word 
+
+We have to addi because sub is for r-type instructions only 
