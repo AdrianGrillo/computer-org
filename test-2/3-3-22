@@ -1,0 +1,48 @@
+
+----- Little Endian Order -----
+
+When storing a hex value, it will store 2 MSD digits in the 4th byte and store the next two digits in the next byte down and etc. 
+
+----- Branch Instructions (B-Type) -----
+
+If x5 equals x6, jump to the instruction titled hi, if not, then continue executing instructions below
+beq x5, x6, hi
+addi x5, x6, 5  #execute these if x5 != x6
+
+hi:             #execute these if x5 == x6 
+add x7, x7, x6
+
+** Need clarity on loading and storing bit/ byte/ word
+
+addi is for adding constant
+add is for adding values in registers together 
+
+----- Example -----
+
+High level:
+if(i > j){
+    e = 3 * i + 5;
+} else {
+    e = 5 * i - 3;
+}
+i = i + 1;
+
+Assembly:
+i = a0, j = a1, e = t0
+
+bge a1, a0, else   #if i <= j, jump to else
+slli t1, a0, 1      #t1 = 2i
+add t1, a0, t1      #t1 = 3i
+addi t0, t1, 5
+j Endif
+
+else:
+slli t1, a0, 2
+add t1, t1, a0      #t1 = 5i
+addi t0, t1, -3     
+#j Endif doesn't need to be included in else statement because after this branch finishes, it will jump to Endif either way
+
+Endif:              #These insuctions will be executed no matter what
+addi a0, a0, 1
+
+** The comparison is negated so that we can keep the if else format, otherwise the else would be on top and the if would be on the bottom

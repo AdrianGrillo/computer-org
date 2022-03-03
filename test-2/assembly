@@ -1,0 +1,13 @@
+
+----- Conditionals -----
+
+If statements are always broken down into two parts. 
+
+Example -> Use Module 4 Assignment 1
+
+cmp t0, t1      // Compare the values in these two registers
+jge larger      // If t0 is >= t1, jump to larger branch
+sub t2, t0, t1
+
+
+larger:         // Execute these instructions if t0 >= t1
