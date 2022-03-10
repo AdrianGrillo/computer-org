@@ -1,0 +1,67 @@
+
+Functions
+
+Program counter stores the address of the next set of instructions to be executed. Every set of instructions is 4 bytes so after each new set of instructions is executed, pc counter will be increased by 4 bytes. 
+
+If your code jumps to a function somewhere in your program, pc is updated to match the address of wherever the instructions for the function are stored. 
+
+jal instruction to call a function and jr to return from the function
+ra is return address to pc 
+
+So does jal store ra and jr goes back to whatever address has been stored in ra? 
+
+ecall (environment call) can call operating system functions that allow the program to print and scan different data types 
+ecall has different services that each have an assigned value 1-50 something. 
+1 is print integer, 2 is print float and so on. 
+Number 10 terminates the program. 
+
+li a7, 1            # Service 1 prints an integer
+add a0, t0, zero    # Load desired value into argument register a0
+ecall 
+
+So register a0 will hold the integer that you want to print 
+
+
+Example: Terminate the program
+
+addi a7, 10
+ecall 
+
+So ecall will execute whichever service corresonds to the integer stored in a7. If you want to print some value, then ecall will print whatever value is stored in a0
+
+Functions don't usually use the s registers but if for some reason the function is complicated and you run out of temporary registers and have to use the s registers
+the values in the s registers need to be stored in memory so that they can be restored after the function finishes. 
+This can be done using stack pointer register to put the value in the s register in memory then to load it back in at the end of the funcion 
+
+addi sp, sp, -4
+sw s0, 0(sp)
+
+Now you're free to use the s0 register inside the function because the original value is stored in memory
+Then at end of function load it back
+
+lw s0, 0(sp) 
+addi sp, sp, 12
+
+Stack pointer always points to the top of the stack, that's why you have to add immediate -4 to it before storing a value to it. 
+
+So for example, if we wanted to temporarily store 3 values to it, then we would have to add immediate -12 to make it point 3 less so we could use that room to store values in memory 
+
+Then after restoring the values to their respective registers from memory, add immediate 12 back to stack pointer so it's once again at the top of the stack. 
+
+some_function: 
+    addi sp, sp, -12    # Make room at top of stack to store values of s3, t0, and t1
+    sw s3, 8(sp)        # Store the values of s3, t0, t1 in stack pointer to be restored later
+    sw t0, 4(sp)
+    sw t1, 0(sp)
+
+    ...                 # Then use s3, t0, and t1 registers for storage during function
+    ...
+    ...
+
+    lw s3, 8(sp)        # Restore original values from stack pointer 
+    lw t0, 4(sp)
+    lw t1, 0(sp)
+
+    addi sp, sp, 12     # Put stack pointer back at top of stack
+
+    jr ra
