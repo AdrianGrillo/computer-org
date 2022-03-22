@@ -1,0 +1,81 @@
+
+Caller is where the function is being invoked 
+Callee is the funcion that's being called 
+
+Cached memory is much faster than main memory 
+
+The caller will load arguments into registers a0 - a7 
+
+Instruction to call function: 
+JAL RA, function_name 
+
+In caller function its important to use s registers because they aren't to be modified during the function call. If they are, then they need to be restored to their original value before the function returns.
+
+If s0 and s1 are overwritten in a function for example, write their values to memory by decrementing the stack pointer by 8 bytes. At the end of the function, read the top two words in the stack and load the orignal values back into s0 and s1
+
+Inside the callee function, t registers are usually used. 
+
+Stack is part of memory.
+
+Though the function arguments are passed through a0-a7, after the fucntion completes, it will store the return values back in a0 or a1 
+
+Return back to the caller using JALR x0, 0(x1) instruction 
+
+Leaf function: A function that calls no other function 
+
+Function that prints out stars: ** NEED TO KNOW FOR EXAM ** 
+
+
+main: 
+    addi a0, zero, 5 
+    jal ra, triangle    # ra = line 33
+
+    addi a7, zero, 10   # ecall 10 exits the program. Equivilant of return 0
+    ecall               # ecall will execute service instruction in a7
+
+# For each line, call starline with the proper amount of stars 
+# a0: number of lines
+triangle: 
+    addi sp, sp, -12    # Decrement stack pointer by -8 to backup s0, s1, and ra
+    sw ra 8(sp)         # We have to backup ra so that we return to the correct line after function  
+    sw s0 4(sp)
+    sw s1 0(sp)
+
+    add s0, zero, zero  # i = 0
+    add s1, a0, zero    # s1 = n
+
+    loop_tri:
+        bge s0, s1, exit_tri
+        addi a0, s0, 1      # Increment i so first line will print 1 star instead of 0
+        jal ra, starline    # Call starline function to print stars, ra = line 48
+        addi s0, s0, 1      
+        j loop_tri          # Jump back to beginning of loop 
+    
+    exit_tri:
+        lw  ra 8(sp)        # Restore the original values of these registers from memory before exiting
+        lw  s0 4(sp)
+        lw  s1 0(sp)
+        addi sp, sp, 12     # Undecrement stack pointer 
+        jr ra               # Return 
+
+# a0: number of stars. Since a0 is being overwritten later in the function, we have to store it's value
+starline:               
+    add t1, zero, a0    # Now t1 is the argument of how many start to print
+    add t0, zero, zero  # t0 = i = 0
+
+    loop:   
+        bge t0, t1, exit    # Condition to exit loop
+        addi a7, zero, 11   
+        addi a0, zero, '*'  # Character to print out 
+        ecall
+        addi t0, t0, 1      # Increment i
+        j loop              # Jump to beginning of loop
+
+    exit: 
+        addi a0, zero, '\n'
+        ecall
+        jr ra               # Return
+
+loop and exit are all inside of the starline function 
+** ecall 11 prints an ASCII CHARACTER
+triangle is a non leaf function and starline is a leaf function 
