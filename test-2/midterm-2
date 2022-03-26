@@ -1,2 +1,8 @@
 
-Table of Boolean Identities provided during the exam
+Mod 4 Ass 1 
+
+#3 b.
+Instead of using negative offsets to access a[i-1] she addi -4 to i then uses that with a 0 offset. Do this problem again and do it in the same way.
+
+#4 
+Instead of just putting Exit I have to specify j Exit to indicate that I'll be jumping to the Exit identifier 
