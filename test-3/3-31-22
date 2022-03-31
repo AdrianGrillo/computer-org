@@ -1,0 +1,40 @@
+
+Recursive factorial
+
+a0 is going to hold the value of the recursive function call throughout each layer. 
+a0 and ra are the only two registers that need to be backed up to the sp through each recursive call
+
+For recursive factorial, it's going to be split into two parts. 
+ 
+1. 
+Decrease sp by 8 to store a0 and ra. a0 is the argument passed and ra is the place in main where factorial was called.
+
+n - 1
+
+Check base case condition, if not true, branch to recursive call 
+
+2.
+Compute the factorial and jr ra to next recursive call
+
+
+fact(5) -> sp - 8 then store a0 and ra 
+fact(4) -> sp - 8 then store a0 and ra 
+fact(3) -> sp - 8 then store a0 and ra 
+fact(2) -> sp - 8 then store a0 and ra 
+fact(1) -> sp - 8 then store a0 and ra 
+base case -> travel back up through recursive calls 
+
+Then as recursive function travels up the layers then it restores a0 and ra back from the sp along the way 
+
+a0 will hold the value of the factorial in that current call and be multiplied by what the value of n is in whatever layer a0 is currently in while it's traveling up through the recursive calls 
+
+
+Recursive fibonacci
+
+ra needs to be backed up in sp and also two other registers. 
+One for n-1(a0) and another for n-2(some temporary register)
+
+Then on each recursive call we load t1 which is n-2 and use these registers to compute the fib number at the current layer 
+
+Now we load ra and adjust sp before returning back to caller to compute next layer 
+
