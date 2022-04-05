@@ -1,0 +1,48 @@
+
+Cache Memory
+
+Since main memory is slow to access, we have a cache between main memory and cpu to match the cpu's access speed. 
+
+2 kinds of main memory: 
+
+1. Read-only memory ROM
+
+2. Random access memory RAM
+
+    - Static Ram SRAM: Very fast and doesn't need to be refreshed.
+
+    - Dynamic Ram: Has capacitors that slowly leak their charge over time so it needs to be refreshed every few milliseconds to prevent data loss. 
+    
+
+Power Law: When cpu power leveled out around 2004 because heat around the cpu can't be dissappated properly inside the system. To address this we made multiple core cpu's. 
+
+
+Locality: Where programs access only a small portion of their address space at a time
+
+    - Temporal Locality (in time): Keeping recently accessed memory in cached memory for faster access.
+
+    - Spacial Locality (in space): If the program accesses one memory address, the block of memory it's in is placed in the cache in case the program will want to access it in the future. 
+
+
+Hit: Data is stored in the cache as a copy and it also exists in memory
+
+Miss: Data is missing in cache but exists in memory 
+
+Miss Penalty: Time required to process the miss including the time it takes to replace a block of cache memory with the missing block from main memory. 
+
+Calculating average access time
+Hit ratio = r
+Hit = 1ns
+Miss = 100ns
+Miss ratio = 1 - r
+
+Average access time = (r x 1) + (1 - r) x 101
+
+Ex. r = 80%, hit = 80%, miss = 20%
+80 x 1ns + 20 x 101ns
+
+Each main memory address is made of two parts: Block address & Offset 
+Depending on block size, the first two or three bits will determine which block the address is in.
+The back few bits will determine the offset inside the block. See slide in in 6.4 Ch 1
+
+Direct Mapped Cache: The place a block from main memory will be stored in the cache is (block address) % (number of blocks in the cache)
