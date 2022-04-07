@@ -1,0 +1,25 @@
+
+Two different patterns for fetching blocks of memory from main memory and from cached memory.
+
+From main: 6 bits, 3 for block address and 3 for block offset
+
+From cache: 6 bits, 1 tag, 2 block index, 3 for offset 
+Cache has a tag because two blocks from main memory can be mapped to a single block in cached.
+Refer to slide 3 on 6.4 part 1
+
+
+Ex. 
+Consider a cache with 256 blocks with a block size of 16 bytes
+
+1. Pattern for main memory
+32 total bits with first 28 being block address with last 4 being offset
+
+2. Pattern for cache
+32 total bits, 20 bits for tag, 8 bits for index, 4 bits for offset 
+8 bit cache index b/c 2^8 = 256 blocks
+4 bit offset b/c 2^4 = 16 bytes per block
+
+These patterns will change depending on the amount of blocks in main memory and bytes per block 
+
+There is also a valid bit to the left of the tagged bit to determine if the data is valid or not.
+When the computer first starts, all of the valid bits are 0. After loading some data from main memory, these valid bits will be 1 for as long as the computer runs b/c there will always be data in the cache.
