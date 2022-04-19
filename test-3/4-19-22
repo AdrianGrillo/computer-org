@@ -1,0 +1,43 @@
+
+Check slides for all of the necessary vocabulary
+
+If the valid bit is one, the frame is stored in PM
+If the valid bit is zero, it's a page fault 
+
+Pages refer to virtual memory while frames refer to physical memory.
+
+1 page = 1kb and 1024 addresses
+
+6.4 Slide 4 for how the addresses are set up as far as page/ frames and offset
+
+VM has 13 bits in the address, 3 for page and 10 for offset
+PM has 12 bits, 2 for frame and 10 for offset 
+
+Know how to calculate effective access time 
+
+Going from smallest to largest
+Cache -> PM -> VM
+
+CPU provides the virtual address that is then translated to a physical address. Then Cache memory checks the PM for addresses. 
+ 
+If a page fault doesn't occur, the page is stored in the hard disk and physical memory.
+If it does occur, then the page is only stored on the hard disk. 
+
+If there isn't a page fault, from there we check the cache and its either a hit or a miss. 
+
+Translation look aside buffer (TLB) is a special cache that stores the mapping of virtual pages to physical pages. So a virtual page number mapping to a page number. 
+
+Cache: 1ns
+Memory: 200ns
+Hard disk: 10ms
+
+1. TLB hit -> 1ns + 200ns 
+
+2. TLB miss -> check page table for a valid bit. 
+If a valid bit is found then the data is both on the hard disk and the physical memory. 
+200ns to access page table, 200ns to read data from PM
+200ns + 200ns + 1ns
+
+3. TLB miss -> If valid bit is not found on page table then the data isn't on PM so it has to access the hard disk. 
+Load page from HD, update TLB, update page table with valid bit
+10ms
